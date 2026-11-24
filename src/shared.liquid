@@ -1,3 +1,5 @@
+{% comment %} Site's last data refresh, in the device owner's time zone. {% endcomment %}
+{% capture updated_line %}{% if updated %}Updated {{ updated | date: "%s" | plus: trmnl.user.utc_offset | date: "%-d %b, %H:%M" }}{% endif %}{% endcapture %}
 {% assign boot_ratio = booted | append: " / " | append: tracked %}
 
 {% template stat %}

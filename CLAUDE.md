@@ -11,7 +11,7 @@ The owner is a DevOps engineer, not a programmer. Documentation, comments and lo
 ```text
 portwatch-vi.xyz/data/tracker.json (~200 KB, updated every 3 h by the site's scout)
   → .github/workflows/build-data.yml (hourly)
-      → scripts/build-data.mjs   → data/trmnl.json (~2 KB), committed only when it changed
+      → scripts/build-data.mjs   → data/trmnl.json (~2 KB), committed only when it changed (each site refresh, ~8 a day)
       → scripts/check-drift.mjs  → fails if our scoring no longer matches the site's
 TRMNL polls raw.githubusercontent.com/nlhomme/trmnl-gtavi-portwatch/main/data/trmnl.json
   → renders src/*.liquid

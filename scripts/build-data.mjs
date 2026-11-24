@@ -62,6 +62,7 @@ export function transform(input) {
   markers.forEach((m) => { if (over > 0) m.a -= over; m.a = Math.round(m.a); m.left = m.a - 6; });
 
   return {
+    updated: input.updated, // when the site's scout last refreshed tracker.json (ISO, UTC)
     score: leader ? leader.score : 0,
     leader: leader ? leader.e.name : null,
     leader_reached_label: leader ? label(leader.reached) : null,
