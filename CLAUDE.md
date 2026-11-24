@@ -70,8 +70,20 @@ The four views do not share one layout: each is designed for its size (`half_ver
 - The framework has no `left--[x%]` class. Positions along the bar use `w--[Ncqw]` spacers, which only exist for whole numbers 0–100: anything used as a position must be an integer (the script rounds `markers[].a` and `markers[].left`).
 - `.flex` adds a default gap: rows that position things with spacers need `gap--none`.
 - There is no nowrap utility; multi-word labels that must not wrap use `&nbsp;`.
+- `label--gray` breaks small text into dots on 1-bit screens: always pair it with `1bit:text--black`, which prints it solid there and changes nothing on 2-bit and colour screens.
+- Sizes for the TRMNL X use `lg:` classes; portrait uses `portrait:` (every portrait screen) and `lg:portrait:` (X in portrait only, it wins over `portrait:`). Check every change on four screens: OG and X, each in landscape and portrait. The OG in portrait is the narrowest: the milestone names under the bar are hidden there (`portrait:hidden lg:portrait:block`), and the big score stacks above the other figures.
+- The local Chrome render matches TRMNL for the OG, landscape and portrait (`screen screen--og`, add `screen--portrait` and a 480x800 window), but not for the X.
 - `src/` is the plugin's import zip, unzipped: TRMNL imports a flat zip of `settings.yml`, `shared.liquid` and the four views ([format](https://help.trmnl.com/en/articles/10542599-importing-and-exporting-private-plugins)). Keep it flat, keep `settings.yml` in that format (`name`, `strategy`, `refresh_interval` are required; `refresh_interval` is in minutes, one of 15, 30, 60, 120, 240, 360, 480, 720, 1440), and keep each file under 100 KB.
 - `settings.yml` is read only at import: editing it later does not change a plugin already installed on TRMNL.
+
+### Previewing on TRMNL
+
+TRMNL's preview (the TRMNL MCP `startPreview`) only renders markup saved in a plugin, and the local Chrome render is not reliable for the TRMNL X (it gets the X's scaling wrong). To preview changes that are not approved yet:
+
+- Never write them to the owner's live PortWatch VI plugin: the device would show unapproved markup.
+- Create a separate private test plugin (named "PortWatch VI (test)", polling the same `data/trmnl.json`), write the markup there and preview it.
+- When the work is done, ask the owner to delete the test plugin. Do not delete it yourself.
+- Previews spend from the account's hourly render allowance (60 an hour): batch them, and stop on a 429.
 
 ## Conventions
 

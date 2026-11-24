@@ -4,8 +4,8 @@
 
 {% template stat %}
 <div class="flex flex--col flex--left gap--xsmall p--2 outline">
-  <span class="value value--small" data-fit-value="true">{{ value }}{{ suffix }}</span>
-  <span class="label label--small label--gray">{{ label }}</span>
+  <span class="value value--small lg:value--large lg:portrait:value--base" data-fit-value="true">{{ value }}{{ suffix }}</span>
+  <span class="label label--small lg:label--base label--gray 1bit:text--black">{{ label }}</span>
 </div>
 {% endtemplate %}
 
@@ -15,14 +15,14 @@
   a fixed-width box (left = centre - half width, computed by scripts/build-data.mjs) centres its content. &nbsp; stands in for a nowrap utility.
 {% endcomment %}
 {% template markers %}
-<div class="relative w--full h--16">
+<div class="relative w--full h--16 lg:h--24">
   {% for m in markers %}
   <div class="absolute bottom--0 left--0 w--full h--full flex flex--row flex--left gap--none">
     <div class="no-shrink w--[{{ m.left }}cqw]"></div>
     <div class="no-shrink w--[12cqw] h--full flex flex--col flex--center-x flex--bottom gap--xsmall">
-      {% if m.leader %}<span class="label label--small label--outline">{{ m.name | replace: " ", "&nbsp;" }}&nbsp;·&nbsp;{{ m.score }}%</span>{% endif %}
-      <div class="no-shrink w--8 h--8 rounded--full flex flex--center-x {% if m.leader %}bg--black{% else %}bg--white outline{% endif %}">
-        <span class="label label--small{% if m.leader %} text--white{% endif %}">{{ m.initials }}</span>
+      {% if m.leader %}<span class="label label--small lg:label--base label--outline">{{ m.name | replace: " ", "&nbsp;" }}&nbsp;·&nbsp;{{ m.score }}%</span>{% endif %}
+      <div class="no-shrink w--8 h--8 lg:w--12 lg:h--12 rounded--full flex flex--center-x {% if m.leader %}bg--black{% else %}bg--white outline{% endif %}">
+        <span class="label label--small lg:label--base{% if m.leader %} text--white{% endif %}">{{ m.initials }}</span>
       </div>
     </div>
   </div>
@@ -36,7 +36,7 @@
 {% endtemplate %}
 
 {% template bar %}
-<div class="relative w--full h--6 rounded--full bg--gray-70">
+<div class="relative w--full h--6 lg:h--10 rounded--full bg--gray-70">
   <div class="absolute top--0 left--0 h--full rounded--full bg--black w--[{{ score | round }}cqw]"></div>
   {% for m in milestones %}{% unless forloop.first or forloop.last %}
   <div class="absolute top--0 left--0 w--full h--full flex flex--row flex--left gap--none">
@@ -48,7 +48,7 @@
 {% endtemplate %}
 
 {% template milestone_labels %}
-<div class="relative w--full h--12 mt--2">
+<div class="relative w--full h--12 lg:h--20 mt--2">
   {% for m in milestones %}
   {% if forloop.first %}{% assign row = "flex--left" %}{% assign box = "flex--left" %}
   {% elsif forloop.last %}{% assign row = "flex--right" %}{% assign box = "flex--right" %}
@@ -56,8 +56,8 @@
   <div class="absolute top--0 left--0 w--full flex flex--row gap--none {{ row }}">
     {% unless forloop.first or forloop.last %}<div class="no-shrink w--[{{ m.left }}cqw]"></div>{% endunless %}
     <div class="flex flex--col {{ box }}">
-      <span class="label label--small{% if m.state == 'todo' %} label--gray{% endif %}">{{ m.at }}%</span>
-      <span class="label{% if m.state == 'reached' %} text--bold{% elsif m.state == 'todo' %} label--gray{% else %} label--underline{% endif %}">{{ m.label | replace: " ", "&nbsp;" }}</span>
+      <span class="label label--small lg:label--base{% if m.state == 'todo' %} label--gray 1bit:text--black{% endif %}">{{ m.at }}%</span>
+      <span class="label lg:label--large lg:portrait:label--base portrait:hidden lg:portrait:block{% if m.state == 'reached' %} text--bold{% elsif m.state == 'todo' %} label--gray 1bit:text--black{% else %} label--underline{% endif %}">{{ m.label | replace: " ", "&nbsp;" }}</span>
     </div>
   </div>
   {% endfor %}

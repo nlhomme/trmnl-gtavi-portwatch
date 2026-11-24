@@ -53,6 +53,8 @@ To set it up by hand instead, create a Private Plugin with the values of `src/se
 
 Every size shows, in its title bar, when PortWatch VI last refreshed its data ("Updated 24 Nov, 14:29", in the device owner's time zone).
 
+The layouts adapt to the TRMNL X (bigger text, markers and bar) and to portrait screens: in portrait the big score sits above the other figures instead of beside them, and on the OG in portrait the milestone names under the bar are hidden (only their percentages stay), as seven names do not fit its width.
+
 | Half horizontal | Half vertical | Quadrant |
 |---|---|---|
 | ![](docs/preview-half-horizontal.png) | ![](docs/preview-half-vertical.png) | ![](docs/preview-quadrant.png) |
