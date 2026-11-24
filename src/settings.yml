@@ -1,11 +1,25 @@
 ---
-# Read by TRMNL when importing the plugin as a zip (see README.md, "Install on TRMNL").
-# Format: https://help.trmnl.com/en/articles/10542599-importing-and-exporting-private-plugins
-name: PortWatch VI
 strategy: polling
-refresh_interval: 60 # minutes; data/trmnl.json is rebuilt hourly by .github/workflows/build-data.yml
-polling_url: https://raw.githubusercontent.com/nlhomme/trmnl-gtavi-portwatch/main/data/trmnl.json
-polling_verb: GET
-polling_headers: ''
 no_screen_padding: 'no'
 dark_mode: 'no'
+static_data: ''
+polling_verb: get
+framework_version: 3.4.7
+serverless_language: ''
+refresh_interval_floor: ''
+polling_url: https://raw.githubusercontent.com/nlhomme/trmnl-gtavi-portwatch/main/data/trmnl.json
+polling_headers: ''
+polling_body: ''
+id: 551061
+oauth_enabled: 'false'
+oauth_pkce_enabled: 'no'
+custom_fields:
+- keyname: author_bio
+  field_type: author_bio
+  name: Nicolas Lhomme
+  description: Shows how close the community is to running GTA VI on PC, via 4lwayz's PortWatch VI.
+  category: games
+  github_url: https://github.com/nlhomme/trmnl-gtavi-portwatch
+name: PortWatch VI
+description: ''
+refresh_interval: 60
