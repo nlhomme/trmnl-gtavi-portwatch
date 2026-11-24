@@ -1,0 +1,66 @@
+{% assign boot_ratio = booted | append: " / " | append: tracked %}
+
+{% template stat %}
+<div class="flex flex--col flex--left gap--xsmall p--2 outline">
+  <span class="value value--small" data-fit-value="true">{{ value }}{{ suffix }}</span>
+  <span class="label label--small label--gray">{{ label }}</span>
+</div>
+{% endtemplate %}
+
+{% comment %}
+  Positions use w--[Ncqw] spacers: the framework has no left--[x%], but .layout is a size container
+  and the bar spans its full width, so N cqw == N% of the bar. One absolute layer per marker/label;
+  a fixed-width box (left = centre - half width, computed by scripts/build-data.mjs) centres its content. &nbsp; stands in for a nowrap utility.
+{% endcomment %}
+{% template markers %}
+<div class="relative w--full h--16">
+  {% for m in markers %}
+  <div class="absolute bottom--0 left--0 w--full h--full flex flex--row flex--left gap--none">
+    <div class="no-shrink w--[{{ m.left }}cqw]"></div>
+    <div class="no-shrink w--[12cqw] h--full flex flex--col flex--center-x flex--bottom gap--xsmall">
+      {% if m.leader %}<span class="label label--small label--outline">{{ m.name | replace: " ", "&nbsp;" }}&nbsp;·&nbsp;{{ m.score }}%</span>{% endif %}
+      <div class="no-shrink w--8 h--8 rounded--full flex flex--center-x {% if m.leader %}bg--black{% else %}bg--white outline{% endif %}">
+        <span class="label label--small{% if m.leader %} text--white{% endif %}">{{ m.initials }}</span>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<svg class="w--full h--5" viewBox="0 0 100 10" preserveAspectRatio="none">
+  {% for m in markers %}
+  <path d="M{{ m.a }} 0 C {{ m.a }} 5, {{ m.x }} 5, {{ m.x }} 10" fill="none" stroke="black" stroke-width="{% if m.leader %}3{% else %}1.5{% endif %}" vector-effect="non-scaling-stroke"/>
+  {% endfor %}
+</svg>
+{% endtemplate %}
+
+{% template bar %}
+<div class="relative w--full h--6 rounded--full bg--gray-70">
+  <div class="absolute top--0 left--0 h--full rounded--full bg--black w--[{{ score | round }}cqw]"></div>
+  {% for m in milestones %}{% unless forloop.first or forloop.last %}
+  <div class="absolute top--0 left--0 w--full h--full flex flex--row flex--left gap--none">
+    <div class="no-shrink w--[{{ m.at }}cqw]"></div>
+    <div class="no-shrink w--[2px] h--full bg--white"></div>
+  </div>
+  {% endunless %}{% endfor %}
+</div>
+{% endtemplate %}
+
+{% template milestone_labels %}
+<div class="relative w--full h--12 mt--2">
+  {% for m in milestones %}
+  {% if forloop.first %}{% assign row = "flex--left" %}{% assign box = "flex--left" %}
+  {% elsif forloop.last %}{% assign row = "flex--right" %}{% assign box = "flex--right" %}
+  {% else %}{% assign row = "flex--left" %}{% assign box = "no-shrink w--[14cqw] flex--center-x" %}{% endif %}
+  <div class="absolute top--0 left--0 w--full flex flex--row gap--none {{ row }}">
+    {% unless forloop.first or forloop.last %}<div class="no-shrink w--[{{ m.left }}cqw]"></div>{% endunless %}
+    <div class="flex flex--col {{ box }}">
+      <span class="label label--small{% if m.state == 'todo' %} label--gray{% endif %}">{{ m.at }}%</span>
+      <span class="label{% if m.state == 'reached' %} text--bold{% elsif m.state == 'todo' %} label--gray{% else %} label--underline{% endif %}">{{ m.label | replace: " ", "&nbsp;" }}</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endtemplate %}
+{% for m in milestones %}{% if m.state == 'next' %}{% assign next_ms = m %}{% endif %}{% endfor %}
+{% capture leader_line %}Leader:&nbsp;<b>{{ leader }}</b>&nbsp;· {{ leader_reached_label }}{% endcapture %}
+{% capture next_line %}{% if next_ms %}Next: {{ next_ms.label }} at {{ next_ms.at }}%{% else %}Stable reached{% endif %}{% endcapture %}

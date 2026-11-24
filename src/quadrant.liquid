@@ -1,0 +1,16 @@
+<div class="layout layout--col layout--stretch-x gap--space-between">
+  <div class="flex flex--row flex--left gap w--full">
+    <span class="value value--xlarge value--tnums">{{ score }}%</span>
+    <div class="flex flex--col flex--left gap--xsmall">
+      <span class="label label--small">{{ leader_line }}</span>
+      <span class="label label--small label--gray">Top-3 {{ top3 }}% · Boot {{ boot_ratio }}</span>
+    </div>
+  </div>
+  <div class="flex flex--col flex--stretch-x gap--small w--full">
+    {% render "bar", score: score, milestones: milestones %}
+    <span class="label label--small">{{ next_line }}</span>
+  </div>
+</div>
+<div class="title_bar">
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+</div>

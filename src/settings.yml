@@ -1,0 +1,8 @@
+# Documentation only: TRMNL does not read this file. See README.md, "Install on TRMNL".
+strategy: polling
+polling_verb: get
+# data/trmnl.json is rebuilt hourly by .github/workflows/build-data.yml
+polling_url: https://raw.githubusercontent.com/nlhomme/trmnl-gtavi-portwatch/main/data/trmnl.json
+refresh_interval: 60
+no_screen_padding: 'no'
+dark_mode: 'no'

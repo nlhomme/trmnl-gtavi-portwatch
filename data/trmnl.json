@@ -1,0 +1,109 @@
+{
+ "score": 72,
+ "leader": "CGBJ",
+ "leader_reached_label": "In-game",
+ "furthest_label": "In-game",
+ "top3": 67.2,
+ "booted": 6,
+ "tracked": 30,
+ "milestones": [
+  {
+   "label": "Groundwork",
+   "at": 0,
+   "left": 0,
+   "state": "reached"
+  },
+  {
+   "label": "Exe runs",
+   "at": 25,
+   "left": 18,
+   "state": "reached"
+  },
+  {
+   "label": "First frame",
+   "at": 40,
+   "left": 33,
+   "state": "reached"
+  },
+  {
+   "label": "Main menu",
+   "at": 55,
+   "left": 48,
+   "state": "reached"
+  },
+  {
+   "label": "In-game",
+   "at": 70,
+   "left": 63,
+   "state": "reached"
+  },
+  {
+   "label": "30 FPS",
+   "at": 85,
+   "left": 78,
+   "state": "next"
+  },
+  {
+   "label": "Stable",
+   "at": 100,
+   "left": 93,
+   "state": "todo"
+  }
+ ],
+ "markers": [
+  {
+   "name": "TuxBox",
+   "initials": "TU",
+   "score": 40,
+   "x": 40,
+   "leader": false,
+   "a": 38,
+   "left": 32
+  },
+  {
+   "name": "Xbox2Windows",
+   "initials": "XB",
+   "score": 47.5,
+   "x": 47.5,
+   "leader": false,
+   "a": 46,
+   "left": 40
+  },
+  {
+   "name": "Five Star Recomp",
+   "initials": "FI",
+   "score": 47.5,
+   "x": 47.5,
+   "leader": false,
+   "a": 52,
+   "left": 46
+  },
+  {
+   "name": "XCL",
+   "initials": "XC",
+   "score": 62.5,
+   "x": 62.5,
+   "leader": false,
+   "a": 61,
+   "left": 55
+  },
+  {
+   "name": "VIctory",
+   "initials": "VI",
+   "score": 67,
+   "x": 67,
+   "leader": false,
+   "a": 67,
+   "left": 61
+  },
+  {
+   "name": "CGBJ",
+   "initials": "CG",
+   "score": 72,
+   "x": 72,
+   "leader": true,
+   "a": 73,
+   "left": 67
+  }
+ ]
+}

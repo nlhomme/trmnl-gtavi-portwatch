@@ -1,0 +1,44 @@
+name: Build TRMNL data
+
+# TRMNL polls data/trmnl.json (~1 KB) instead of the site's ~200 KB tracker.json.
+# The site's scout updates the tracker every 3 hours; checking hourly keeps lag under an hour,
+# and a commit only happens when the numbers changed.
+on:
+  schedule:
+    - cron: "47 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: build-data
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # No token left in .git/config: check-drift.mjs runs code downloaded from the site,
+      # so only the commit step below gets push access.
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build data/trmnl.json
+        run: node scripts/build-data.mjs
+
+      # Fails (leaving the last good trmnl.json published) if the site changed its scoring.
+      - name: Check against the site's scoring.js
+        run: node scripts/check-drift.mjs
+
+      - name: Commit if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git diff --quiet -- data/trmnl.json && { echo "No change."; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh TRMNL data" -- data/trmnl.json
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${GITHUB_REF_NAME}

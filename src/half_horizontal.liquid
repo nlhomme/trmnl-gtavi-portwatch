@@ -1,0 +1,20 @@
+<div class="layout layout--col layout--stretch-x gap--space-between">
+  <div class="flex flex--row flex--left gap--large w--full">
+    <span class="value value--xlarge value--tnums">{{ score }}%</span>
+    <div class="flex flex--col flex--left gap--xsmall grow">
+      <span class="label label--small label--gray">CLOSEST EFFORT TO PLAYABLE</span>
+      <span class="description">{{ leader_line }}</span>
+    </div>
+    <div class="flex flex--col flex--right gap--xsmall">
+      <span class="label label--small">Top-3 avg {{ top3 }}% · Boot {{ boot_ratio }}</span>
+      <span class="label label--small label--gray">{{ next_line }}</span>
+    </div>
+  </div>
+  <div class="flex flex--col flex--stretch-x w--full">
+    {% render "bar", score: score, milestones: milestones %}
+    {% render "milestone_labels", milestones: milestones %}
+  </div>
+</div>
+<div class="title_bar">
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+</div>
