@@ -17,7 +17,7 @@ custom_fields:
 - keyname: author_bio
   field_type: author_bio
   name: Nicolas Lhomme
-  description: Shows how close the community is to running GTA VI on PC, via 4lwayz's PortWatch VI.
+  description: Shows how close the community is to running GTA VI on PC. Data pulled once per hour from 4lwayz's PortWatch VI.
   category: games
   github_url: https://github.com/nlhomme/trmnl-gtavi-portwatch
 name: PortWatch VI
