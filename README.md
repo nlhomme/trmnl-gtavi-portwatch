@@ -36,6 +36,7 @@ TRMNL imports a private plugin from a zip holding `settings.yml` and the `.liqui
    Don't use macOS Finder's **Compress "src"** or GitHub's **Download ZIP**: they put the files inside a folder, and TRMNL then answers "The ZIP file does not contain settings.yml".
 
 2. In TRMNL, open the **Private Plugin** settings page, click **Import new** and choose `portwatch-vi-trmnl.zip`. TRMNL creates the plugin and adds it to your playlist.
+3. Optional: in the plugin's settings, upload `src/icon.svg` as its icon (a slanted "VI", black and white). The zip import does not carry an icon.
 
 The zip sets everything: polling `https://raw.githubusercontent.com/nlhomme/trmnl-gtavi-portwatch/main/data/trmnl.json` with GET, a refresh every 60 minutes, no transform (the data is already in its final shape), and the markup for the Shared tab and the four sizes.
 

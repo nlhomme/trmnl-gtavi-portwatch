@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Plugin icon: a heavy, slanted "VI" with a solid drop shadow. Original drawing, black and white only for e-ink. -->
+  <defs>
+    <path id="vi" d="M2 8H18V13H15.5L22 38L28.5 13H26V8H38V13H35.5L26 56H18L6.5 13H2Z M41 8H61V13H56V51H61V56H41V51H46V13H41Z"/>
+  </defs>
+  <g transform="translate(3.5 0) skewX(-6)">
+    <use href="#vi" transform="translate(2.5 2.5)" fill="#000"/>
+    <use href="#vi" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="miter"/>
+  </g>
+</svg>

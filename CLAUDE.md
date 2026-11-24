@@ -75,5 +75,5 @@ The four views do not share one layout: each is designed for its size (`half_ver
 
 ## Conventions
 
-- Plugin files (`*.liquid`, `settings.yml`) live in `src/`, scripts in `scripts/`, generated data in `data/`.
+- Plugin files (`*.liquid`, `settings.yml`, `icon.svg`) live in `src/`. `icon.svg` is not part of the import zip (TRMNL takes the icon as an upload in the plugin's settings); it is black and white only, for e-ink. Scripts live in `scripts/`, generated data in `data/`.
 - Never commit secrets. The workflow needs none beyond the repo's own `GITHUB_TOKEN`.
