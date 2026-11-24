@@ -25,18 +25,19 @@ If step 1 or 2 fails, nothing is committed, and the display keeps showing the la
 
 ## Install on TRMNL
 
-1. In TRMNL, create a **Private Plugin**.
-2. Set **Strategy** to *Polling*, **Polling verb** to *GET* and **Polling URL** to:
+TRMNL imports a private plugin from a zip holding `settings.yml` and the `.liquid` files, with no folders inside ([TRMNL's import guide](https://help.trmnl.com/en/articles/10542599-importing-and-exporting-private-plugins)). `src/` is laid out that way.
 
-   ```text
-   https://raw.githubusercontent.com/nlhomme/trmnl-gtavi-portwatch/main/data/trmnl.json
+1. Build the zip from a copy of this repo (macOS and Linux):
+
+   ```bash
+   cd src && zip -j ../portwatch-vi-trmnl.zip settings.yml *.liquid && cd ..
    ```
 
-3. Leave the transform empty: the data is already in its final shape.
-4. Copy the markup from `src/` into the editor's tabs: `shared.liquid` into **Shared**, and `full.liquid`, `half_horizontal.liquid`, `half_vertical.liquid`, `quadrant.liquid` into the tab of the same size.
-5. Add the plugin to a playlist.
+2. In TRMNL, open the **Private Plugin** settings page, click **Import new** and choose `portwatch-vi-trmnl.zip`. TRMNL creates the plugin and adds it to your playlist.
 
-`src/settings.yml` documents these settings; it is not read by TRMNL.
+The zip sets everything: polling `https://raw.githubusercontent.com/nlhomme/trmnl-gtavi-portwatch/main/data/trmnl.json` with GET, a refresh every 60 minutes, no transform (the data is already in its final shape), and the markup for the Shared tab and the four sizes.
+
+To set it up by hand instead, create a Private Plugin with the values of `src/settings.yml`, then paste `shared.liquid` into the **Shared** tab and each other `.liquid` file into the tab of the same size.
 
 ## Screen sizes
 

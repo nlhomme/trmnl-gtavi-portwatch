@@ -1,8 +1,11 @@
-# Documentation only: TRMNL does not read this file. See README.md, "Install on TRMNL".
+---
+# Read by TRMNL when importing the plugin as a zip (see README.md, "Install on TRMNL").
+# Format: https://help.trmnl.com/en/articles/10542599-importing-and-exporting-private-plugins
+name: PortWatch VI
 strategy: polling
-polling_verb: get
-# data/trmnl.json is rebuilt hourly by .github/workflows/build-data.yml
+refresh_interval: 60 # minutes; data/trmnl.json is rebuilt hourly by .github/workflows/build-data.yml
 polling_url: https://raw.githubusercontent.com/nlhomme/trmnl-gtavi-portwatch/main/data/trmnl.json
-refresh_interval: 60
+polling_verb: GET
+polling_headers: ''
 no_screen_padding: 'no'
 dark_mode: 'no'

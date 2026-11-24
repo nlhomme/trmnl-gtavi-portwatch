@@ -70,7 +70,8 @@ The four views do not share one layout: each is designed for its size (`half_ver
 - The framework has no `left--[x%]` class. Positions along the bar use `w--[Ncqw]` spacers, which only exist for whole numbers 0–100: anything used as a position must be an integer (the script rounds `markers[].a` and `markers[].left`).
 - `.flex` adds a default gap: rows that position things with spacers need `gap--none`.
 - There is no nowrap utility; multi-word labels that must not wrap use `&nbsp;`.
-- `src/settings.yml` is documentation only: it does not sync to the TRMNL dashboard.
+- `src/` is the plugin's import zip, unzipped: TRMNL imports a flat zip of `settings.yml`, `shared.liquid` and the four views ([format](https://help.trmnl.com/en/articles/10542599-importing-and-exporting-private-plugins)). Keep it flat, keep `settings.yml` in that format (`name`, `strategy`, `refresh_interval` are required; `refresh_interval` is in minutes, one of 15, 30, 60, 120, 240, 360, 480, 720, 1440), and keep each file under 100 KB.
+- `settings.yml` is read only at import: editing it later does not change a plugin already installed on TRMNL.
 
 ## Conventions
 
