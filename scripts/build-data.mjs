@@ -8,37 +8,40 @@ export function transform(input) {
   // Copy of https://portwatch-vi.xyz/assets/js/scoring.js (MILESTONES, GROUNDWORK weights, STABILITY,
   // scoreEffort, overall): keep in sync with it. scripts/check-drift.mjs fails when they disagree.
   const MILESTONES = [
-    ['groundwork', 'Groundwork', 0], ['loads', 'Exe runs', 25], ['boots', 'First frame', 40],
-    ['menu', 'Main menu', 55], ['ingame', 'In-game', 70], ['fps30', '30 FPS', 85], ['stable', 'Stable', 100],
+    ['groundwork', 'Groundwork', 0], ['loads', 'Exe runs', 10], ['boots', 'First frame', 20],
+    ['menu', 'Main menu', 30], ['world', 'In the world', 40], ['playable', 'Playable', 50], ['complete', 'Complete', 100],
   ].map(([key, label, at]) => ({ key, label, at }));
   const TICK = Object.fromEntries(MILESTONES.map((m) => [m.key, m.at]));
   const GW = { loader: 0.2, shaders: 0.28, graphics: 0.32, proven: 0.2 };
-  const STAB = { often: 0.25, sometimes: 0.55, rarely: 0.8, stable: 1 };
+  // Past Playable: four tracks (weights sum to 1) fill 50 to 100%.
+  const TRACKS = { story: 0.35, render: 0.25, perf: 0.2, stability: 0.2 };
+  const STAB = { often: 0.25, sometimes: 0.55, rarely: 0.8, stable: 1 }; // anything else (unknown, constant) = 0
   const clamp01 = (v) => (Number.isFinite(+v) ? Math.min(1, Math.max(0, +v)) : 0);
   const ladder = (v) => (v === true ? 1 : v === false || v == null ? 0 : clamp01(v));
   const round1 = (v) => Math.round(v * 10) / 10;
-
   function score(e) {
     const gta = e.gta || {};
     let s = TICK.loads * Object.keys(GW).reduce((a, k) => a + GW[k] * clamp01(e.groundwork?.[k]), 0);
     let reached = 'groundwork';
     let prev = s;
-    for (const key of ['loads', 'boots', 'menu', 'ingame']) {
+    for (const key of ['loads', 'boots', 'menu', 'world', 'playable']) {
       const v = ladder(gta[key]);
       if (v >= 1) { s = prev = TICK[key]; reached = key; continue; }
       if (v > 0) s = Math.max(s, prev + v * (TICK[key] - prev));
       break;
     }
-    if (reached === 'ingame') {
-      const fps = clamp01((+gta.fps || 0) / 30);
-      const stab = STAB[gta.stability] || 0;
-      s = TICK.ingame + fps * (TICK.fps30 - TICK.ingame) + stab * (TICK.stable - TICK.fps30);
-      if (fps >= 1) reached = 'fps30';
-      if (fps >= 1 && stab >= 1) reached = 'stable';
+    if (reached === 'playable') {
+      const t = {
+        story: clamp01(gta.story), render: clamp01(gta.render), perf: clamp01((+gta.fps || 0) / 30),
+        stability: typeof gta.stability === 'number' ? clamp01(gta.stability) : STAB[gta.stability] || 0,
+      };
+      const quality = Object.keys(TRACKS).reduce((a, k) => a + TRACKS[k] * t[k], 0);
+      s = TICK.playable + quality * (TICK.complete - TICK.playable);
+      if (quality >= 1) reached = 'complete';
     }
+    if (Number.isFinite(e.manualScore)) s = Math.min(100, Math.max(0, e.manualScore)); // owner's hand-set score
     return { score: round1(s), reached };
   }
-
   const all = input.efforts;
   const ranked = all.filter((e) => !e.nuked)
     .map((e) => ({ e, ...score(e) }))
