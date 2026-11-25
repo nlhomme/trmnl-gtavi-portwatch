@@ -4,7 +4,7 @@
  "leader": "Doomsday",
  "leader_reached_label": "Playable",
  "furthest_label": "Playable",
- "top3": 78,
+ "top3": 78.1,
  "booted": 15,
  "tracked": 39,
  "milestones": [
@@ -53,13 +53,22 @@
  ],
  "markers": [
   {
+   "name": "Uilian",
+   "initials": "UI",
+   "score": 59.6,
+   "x": 59.6,
+   "leader": false,
+   "a": 54,
+   "left": 48
+  },
+  {
    "name": "hyphennn",
    "initials": "HY",
    "score": 59.8,
    "x": 59.8,
    "leader": false,
-   "a": 55,
-   "left": 49
+   "a": 60,
+   "left": 54
   },
   {
    "name": "suri",
@@ -67,26 +76,17 @@
    "score": 61,
    "x": 61,
    "leader": false,
-   "a": 61,
-   "left": 55
-  },
-  {
-   "name": "ZETTROX",
-   "initials": "ZE",
-   "score": 64.2,
-   "x": 64.2,
-   "leader": false,
-   "a": 67,
-   "left": 61
+   "a": 66,
+   "left": 60
   },
   {
    "name": "Belobug",
    "initials": "BE",
-   "score": 77.4,
-   "x": 77.4,
+   "score": 77.7,
+   "x": 77.7,
    "leader": false,
-   "a": 73,
-   "left": 67
+   "a": 72,
+   "left": 66
   },
   {
    "name": "DexNom",
@@ -94,8 +94,8 @@
    "score": 78,
    "x": 78,
    "leader": false,
-   "a": 79,
-   "left": 73
+   "a": 78,
+   "left": 72
   },
   {
    "name": "Doomsday",
@@ -103,8 +103,8 @@
    "score": 78.7,
    "x": 78.7,
    "leader": true,
-   "a": 85,
-   "left": 79
+   "a": 84,
+   "left": 78
   }
  ]
 }
