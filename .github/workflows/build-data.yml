@@ -16,7 +16,7 @@ concurrency: build-data
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       # No token left in .git/config: check-drift.mjs runs code downloaded from the site,
       # so only the commit step below gets push access.
@@ -47,7 +47,7 @@ jobs:
   report:
     needs: build
     if: always() && needs.build.result != 'cancelled' && needs.build.result != 'skipped'
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       issues: write
     env:
