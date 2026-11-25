@@ -2,6 +2,8 @@
 
 Shows how close the community is to running GTA VI on PC, on a [TRMNL](https://trmnl.com) e-ink display. It reproduces the "Overall progress · Closest effort to playable" panel of [PortWatch VI](https://portwatch-vi.xyz): the leader's score, four key figures, the top 6 efforts on the progress bar and the seven milestones.
 
+[![Show on TRMNL](docs/show-on-trmnl.svg)](https://trmnl.com/recipes/portwatch-vi-551061)
+
 ![Full screen](docs/preview-full.png)
 
 This is an unofficial plugin. PortWatch VI is made by [4lwayz](https://github.com/4lwayz/portwatch-vi); this repo only reads its public data and copies its scoring rules so the numbers match the site.
@@ -21,11 +23,17 @@ TRMNL does not poll `tracker.json` directly because private plugins whose polled
 
 GitHub does not guarantee scheduled runs on time: under load it delays or skips them, so "hourly" is best effort (gaps of a few hours happen). If the data looks stale, run the workflow by hand (see below).
 
-If step 1 or 2 fails, nothing is committed, and the display keeps showing the last good data. GitHub emails the repo owner when a scheduled run fails. A failure in step 2 means the site changed how it scores efforts, and `scripts/build-data.mjs` needs the same change.
+If step 1 or 2 fails, nothing is committed, and the display keeps showing the last good data. When a run fails, a separate `report` job (the only one with `issues: write`) opens an issue labelled `workflow-failure`, or adds a comment to the one already open; when a run succeeds again it comments and closes it. GitHub also emails the owner. A failure in step 2 means the site changed how it scores efforts, and `scripts/build-data.mjs` needs the same change.
 
 `check-drift.mjs` runs code downloaded from portwatch-vi.xyz, so the workflow gives it no push access: only the commit step receives the token.
 
 ## Install on TRMNL
+
+### (recommended) Install the recipe from TRMNL
+
+Click the "Show on TRMNL" button at the top of this page, or open the [recipe page](https://trmnl.com/recipes/portwatch-vi-551061), and install it from there.
+
+### Import it manually
 
 TRMNL imports a private plugin from a zip holding `settings.yml` and the `.liquid` files, with no folders inside ([TRMNL's import guide](https://help.trmnl.com/en/articles/10542599-importing-and-exporting-private-plugins)). `src/` is laid out that way.
 
