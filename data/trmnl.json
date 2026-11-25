@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-25T10:45:44.000Z",
- "score": 77.4,
- "leader": "Belobug",
+ "updated": "2026-11-25T13:45:26.000Z",
+ "score": 78.7,
+ "leader": "Doomsday",
  "leader_reached_label": "Playable",
  "furthest_label": "Playable",
- "top3": 67.5,
- "booted": 13,
- "tracked": 37,
+ "top3": 78,
+ "booted": 15,
+ "tracked": 39,
  "milestones": [
   {
    "label": "Groundwork",
@@ -53,31 +53,13 @@
  ],
  "markers": [
   {
-   "name": "omonkey",
-   "initials": "OM",
-   "score": 57.9,
-   "x": 57.9,
-   "leader": false,
-   "a": 48,
-   "left": 42
-  },
-  {
-   "name": "Uilian",
-   "initials": "UI",
-   "score": 59.6,
-   "x": 59.6,
-   "leader": false,
-   "a": 54,
-   "left": 48
-  },
-  {
    "name": "hyphennn",
    "initials": "HY",
    "score": 59.8,
    "x": 59.8,
    "leader": false,
-   "a": 60,
-   "left": 54
+   "a": 55,
+   "left": 49
   },
   {
    "name": "suri",
@@ -85,8 +67,8 @@
    "score": 61,
    "x": 61,
    "leader": false,
-   "a": 66,
-   "left": 60
+   "a": 61,
+   "left": 55
   },
   {
    "name": "ZETTROX",
@@ -94,17 +76,35 @@
    "score": 64.2,
    "x": 64.2,
    "leader": false,
-   "a": 72,
-   "left": 66
+   "a": 67,
+   "left": 61
   },
   {
    "name": "Belobug",
    "initials": "BE",
    "score": 77.4,
    "x": 77.4,
+   "leader": false,
+   "a": 73,
+   "left": 67
+  },
+  {
+   "name": "DexNom",
+   "initials": "DE",
+   "score": 78,
+   "x": 78,
+   "leader": false,
+   "a": 79,
+   "left": 73
+  },
+  {
+   "name": "Doomsday",
+   "initials": "DO",
+   "score": 78.7,
+   "x": 78.7,
    "leader": true,
-   "a": 78,
-   "left": 72
+   "a": 85,
+   "left": 79
   }
  ]
 }
