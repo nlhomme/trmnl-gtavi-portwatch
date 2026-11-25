@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-25T19:08:07.442Z",
- "score": 78.7,
- "leader": "Doomsday",
+ "updated": "2026-11-25T19:48:37.000Z",
+ "score": 79.5,
+ "leader": "darkworldhm",
  "leader_reached_label": "Playable",
  "furthest_label": "Playable",
- "top3": 78.1,
- "booted": 15,
- "tracked": 39,
+ "top3": 78.7,
+ "booted": 17,
+ "tracked": 41,
  "milestones": [
   {
    "label": "Groundwork",
@@ -53,22 +53,13 @@
  ],
  "markers": [
   {
-   "name": "Uilian",
-   "initials": "UI",
-   "score": 59.6,
-   "x": 59.6,
-   "leader": false,
-   "a": 54,
-   "left": 48
-  },
-  {
    "name": "hyphennn",
    "initials": "HY",
    "score": 59.8,
    "x": 59.8,
    "leader": false,
-   "a": 60,
-   "left": 54
+   "a": 54,
+   "left": 48
   },
   {
    "name": "suri",
@@ -76,8 +67,8 @@
    "score": 61,
    "x": 61,
    "leader": false,
-   "a": 66,
-   "left": 60
+   "a": 60,
+   "left": 54
   },
   {
    "name": "Belobug",
@@ -85,8 +76,8 @@
    "score": 77.7,
    "x": 77.7,
    "leader": false,
-   "a": 72,
-   "left": 66
+   "a": 71,
+   "left": 65
   },
   {
    "name": "DexNom",
@@ -94,17 +85,26 @@
    "score": 78,
    "x": 78,
    "leader": false,
-   "a": 78,
-   "left": 72
+   "a": 77,
+   "left": 71
   },
   {
    "name": "Doomsday",
    "initials": "DO",
    "score": 78.7,
    "x": 78.7,
+   "leader": false,
+   "a": 83,
+   "left": 77
+  },
+  {
+   "name": "darkworldhm",
+   "initials": "DA",
+   "score": 79.5,
+   "x": 79.5,
    "leader": true,
-   "a": 84,
-   "left": 78
+   "a": 89,
+   "left": 83
   }
  ]
 }
