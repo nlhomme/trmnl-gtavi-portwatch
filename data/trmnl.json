@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-24T16:24:31.934Z",
- "score": 72,
- "leader": "CGBJ",
- "leader_reached_label": "In-game",
- "furthest_label": "In-game",
- "top3": 67.2,
- "booted": 6,
- "tracked": 30,
+ "updated": "2026-11-25T10:45:44.000Z",
+ "score": 77.4,
+ "leader": "Belobug",
+ "leader_reached_label": "Playable",
+ "furthest_label": "Playable",
+ "top3": 67.5,
+ "booted": 13,
+ "tracked": 37,
  "milestones": [
   {
    "label": "Groundwork",
@@ -16,95 +16,95 @@
   },
   {
    "label": "Exe runs",
-   "at": 25,
-   "left": 18,
+   "at": 10,
+   "left": 3,
    "state": "reached"
   },
   {
    "label": "First frame",
+   "at": 20,
+   "left": 13,
+   "state": "reached"
+  },
+  {
+   "label": "Main menu",
+   "at": 30,
+   "left": 23,
+   "state": "reached"
+  },
+  {
+   "label": "In the world",
    "at": 40,
    "left": 33,
    "state": "reached"
   },
   {
-   "label": "Main menu",
-   "at": 55,
-   "left": 48,
+   "label": "Playable",
+   "at": 50,
+   "left": 43,
    "state": "reached"
   },
   {
-   "label": "In-game",
-   "at": 70,
-   "left": 63,
-   "state": "reached"
-  },
-  {
-   "label": "30 FPS",
-   "at": 85,
-   "left": 78,
-   "state": "next"
-  },
-  {
-   "label": "Stable",
+   "label": "Complete",
    "at": 100,
    "left": 93,
-   "state": "todo"
+   "state": "next"
   }
  ],
  "markers": [
   {
-   "name": "TuxBox",
-   "initials": "TU",
-   "score": 40,
-   "x": 40,
+   "name": "omonkey",
+   "initials": "OM",
+   "score": 57.9,
+   "x": 57.9,
    "leader": false,
-   "a": 38,
-   "left": 32
+   "a": 48,
+   "left": 42
   },
   {
-   "name": "Xbox2Windows",
-   "initials": "XB",
-   "score": 47.5,
-   "x": 47.5,
+   "name": "Uilian",
+   "initials": "UI",
+   "score": 59.6,
+   "x": 59.6,
    "leader": false,
-   "a": 46,
-   "left": 40
+   "a": 54,
+   "left": 48
   },
   {
-   "name": "Five Star Recomp",
-   "initials": "FI",
-   "score": 47.5,
-   "x": 47.5,
+   "name": "hyphennn",
+   "initials": "HY",
+   "score": 59.8,
+   "x": 59.8,
    "leader": false,
-   "a": 52,
-   "left": 46
+   "a": 60,
+   "left": 54
   },
   {
-   "name": "XCL",
-   "initials": "XC",
-   "score": 62.5,
-   "x": 62.5,
+   "name": "suri",
+   "initials": "SU",
+   "score": 61,
+   "x": 61,
    "leader": false,
-   "a": 61,
-   "left": 55
+   "a": 66,
+   "left": 60
   },
   {
-   "name": "VIctory",
-   "initials": "VI",
-   "score": 67,
-   "x": 67,
+   "name": "ZETTROX",
+   "initials": "ZE",
+   "score": 64.2,
+   "x": 64.2,
    "leader": false,
-   "a": 67,
-   "left": 61
+   "a": 72,
+   "left": 66
   },
   {
-   "name": "CGBJ",
-   "initials": "CG",
-   "score": 72,
-   "x": 72,
+   "name": "Belobug",
+   "initials": "BE",
+   "score": 77.4,
+   "x": 77.4,
    "leader": true,
-   "a": 73,
-   "left": 67
+   "a": 78,
+   "left": 72
   }
  ]
 }

@@ -2,6 +2,7 @@ name: Build TRMNL data
 
 # TRMNL polls data/trmnl.json (~1 KB) instead of the site's ~200 KB tracker.json.
 # The site's scout updates the tracker every 3 hours; checking hourly keeps lag under an hour,
+# GitHub schedules are best effort (runs can be delayed or skipped), so "hourly" is not guaranteed.
 # and a commit happens only when data/trmnl.json changed, i.e. at each site refresh (its `updated` time changes).
 on:
   schedule:
