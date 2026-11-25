@@ -1,12 +1,11 @@
 name: Build TRMNL data
 
 # TRMNL polls data/trmnl.json (~1 KB) instead of the site's ~200 KB tracker.json.
-# The site's scout updates the tracker every 3 hours; checking hourly keeps lag under an hour,
-# and a commit happens only when data/trmnl.json changed, i.e. at each site refresh (its `updated` time changes).
+# The site's scout updates the tracker every 3 hours; checking every 15 minutes keeps lag short even when GitHub skips some scheduled runs,
 # and a commit happens only when data/trmnl.json changed, i.e. at each site refresh (its `updated` time changes).
 on:
   schedule:
-    - cron: "47 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -16,7 +15,7 @@ concurrency: build-data
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       # No token left in .git/config: check-drift.mjs runs code downloaded from the site,
       # so only the commit step below gets push access.
@@ -47,7 +46,7 @@ jobs:
   report:
     needs: build
     if: always() && needs.build.result != 'cancelled' && needs.build.result != 'skipped'
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       issues: write
     env:

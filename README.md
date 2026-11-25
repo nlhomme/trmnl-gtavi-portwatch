@@ -12,7 +12,7 @@ This is an unofficial plugin. PortWatch VI is made by [4lwayz](https://github.co
 
 ```text
 portwatch-vi.xyz/data/tracker.json   (~200 KB, refreshed every 3 hours by the site)
-  → GitHub workflow, about every hour at :47 (.github/workflows/build-data.yml)
+  → GitHub workflow, about every 15 minutes (.github/workflows/build-data.yml)
       1. scripts/build-data.mjs  scores every effort and writes data/trmnl.json (~2 KB)
       2. scripts/check-drift.mjs compares the result with the site's own scoring.js
       3. commits data/trmnl.json, only if it changed (each site refresh)
@@ -21,7 +21,7 @@ portwatch-vi.xyz/data/tracker.json   (~200 KB, refreshed every 3 hours by the si
 
 TRMNL does not poll `tracker.json` directly because private plugins whose polled response is over about 100 KB get degraded.
 
-GitHub does not guarantee scheduled runs on time: under load it delays or skips them, so "hourly" is best effort (gaps of a few hours happen). If the data looks stale, run the workflow by hand (see below).
+GitHub does not guarantee scheduled runs on time: under load it delays or skips them, so "every 15 minutes" is best effort (gaps of a few hours happen). If the data looks stale, run the workflow by hand (see below).
 
 If step 1 or 2 fails, nothing is committed, and the display keeps showing the last good data. When a run fails, a separate `report` job (the only one with `issues: write`) opens an issue labelled `workflow-failure`, or adds a comment to the one already open; when a run succeeds again it comments and closes it. GitHub also emails the owner. A failure in step 2 means the site changed how it scores efforts, and `scripts/build-data.mjs` needs the same change.
 
