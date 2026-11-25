@@ -2,7 +2,7 @@ name: Build TRMNL data
 
 # TRMNL polls data/trmnl.json (~1 KB) instead of the site's ~200 KB tracker.json.
 # The site's scout updates the tracker every 3 hours; checking hourly keeps lag under an hour,
-# GitHub schedules are best effort (runs can be delayed or skipped), so "hourly" is not guaranteed.
+# and a commit happens only when data/trmnl.json changed, i.e. at each site refresh (its `updated` time changes).
 # and a commit happens only when data/trmnl.json changed, i.e. at each site refresh (its `updated` time changes).
 on:
   schedule:
@@ -43,3 +43,31 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore: refresh TRMNL data" -- data/trmnl.json
           git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${GITHUB_REF_NAME}
+
+  report:
+    needs: build
+    if: always() && needs.build.result != 'cancelled' && needs.build.result != 'skipped'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      RESULT: ${{ needs.build.result }}
+    steps:
+      - name: Open, update or close the failure issue
+        run: |
+          gh label create workflow-failure --description "The Build TRMNL data workflow is failing" --color d73a4a 2>/dev/null || true
+          N=$(gh issue list --label workflow-failure --state open --json number --jq '.[0].number // empty')
+          NOW=$(date -u +"%Y-%m-%d %H:%M UTC")
+          if [ "$RESULT" = "failure" ]; then
+            if [ -n "$N" ]; then
+              gh issue comment "$N" --body "Still failing at $NOW: $RUN_URL"
+            else
+              gh issue create --label workflow-failure --title "Build TRMNL data is failing" \
+                --body "The workflow failed at $NOW: $RUN_URL. The display keeps showing the last good data. If the failing step is the drift check, the site changed its scoring and scripts/build-data.mjs must be updated. This issue closes itself when a run succeeds."
+            fi
+          elif [ -n "$N" ]; then
+            gh issue close "$N" --comment "Fixed by $RUN_URL ($NOW)."
+          fi

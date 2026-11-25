@@ -21,7 +21,7 @@ TRMNL does not poll `tracker.json` directly because private plugins whose polled
 
 GitHub does not guarantee scheduled runs on time: under load it delays or skips them, so "hourly" is best effort (gaps of a few hours happen). If the data looks stale, run the workflow by hand (see below).
 
-If step 1 or 2 fails, nothing is committed, and the display keeps showing the last good data. GitHub emails the repo owner when a scheduled run fails. A failure in step 2 means the site changed how it scores efforts, and `scripts/build-data.mjs` needs the same change.
+If step 1 or 2 fails, nothing is committed, and the display keeps showing the last good data. When a run fails, a separate `report` job (the only one with `issues: write`) opens an issue labelled `workflow-failure`, or adds a comment to the one already open; when a run succeeds again it comments and closes it. GitHub also emails the owner. A failure in step 2 means the site changed how it scores efforts, and `scripts/build-data.mjs` needs the same change.
 
 `check-drift.mjs` runs code downloaded from portwatch-vi.xyz, so the workflow gives it no push access: only the commit step receives the token.
 
