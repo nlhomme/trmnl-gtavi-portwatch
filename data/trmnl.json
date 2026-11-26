@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T09:13:40.493Z",
+ "updated": "2026-11-26T10:23:53.338Z",
  "score": 91.5,
  "leader": "CGBJ",
  "leader_reached_label": "Playable",
@@ -58,8 +58,8 @@
    "score": 79,
    "x": 79,
    "leader": false,
-   "a": 64,
-   "left": 58
+   "a": 60,
+   "left": 54
   },
   {
    "name": "AvatarManz",
@@ -67,8 +67,8 @@
    "score": 83.1,
    "x": 83.1,
    "leader": false,
-   "a": 70,
-   "left": 64
+   "a": 66,
+   "left": 60
   },
   {
    "name": "Doomsday",
@@ -76,8 +76,8 @@
    "score": 84,
    "x": 84,
    "leader": false,
-   "a": 76,
-   "left": 70
+   "a": 72,
+   "left": 66
   },
   {
    "name": "darkworldhm",
@@ -85,8 +85,8 @@
    "score": 84.8,
    "x": 84.8,
    "leader": false,
-   "a": 82,
-   "left": 76
+   "a": 78,
+   "left": 72
   },
   {
    "name": "NotNozy",
@@ -94,8 +94,8 @@
    "score": 87.8,
    "x": 87.8,
    "leader": false,
-   "a": 88,
-   "left": 82
+   "a": 84,
+   "left": 78
   },
   {
    "name": "CGBJ",
@@ -103,8 +103,8 @@
    "score": 91.5,
    "x": 91.5,
    "leader": true,
-   "a": 94,
-   "left": 88
+   "a": 90,
+   "left": 84
   }
  ]
 }

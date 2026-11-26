@@ -13,6 +13,9 @@
   Positions use w--[Ncqw] spacers: the framework has no left--[x%], but .layout is a size container
   and the bar spans its full width, so N cqw == N% of the bar. One absolute layer per marker/label;
   a fixed-width box (left = centre - half width, computed by scripts/build-data.mjs) centres its content. &nbsp; stands in for a nowrap utility.
+  Milestone names: the ladder puts six milestones within the first 50% (10% apart, narrower than a name),
+  so every other name drops one line (the blank line below) and neighbours never touch.
+  Half horizontal is too short for two lines of names: it passes names: false and shows only the percentages.
 {% endcomment %}
 {% template markers %}
 <div class="relative w--full h--16 lg:h--24">
@@ -20,7 +23,7 @@
   <div class="absolute bottom--0 left--0 w--full h--full flex flex--row flex--left gap--none">
     <div class="no-shrink w--[{{ m.left }}cqw]"></div>
     <div class="no-shrink w--[12cqw] h--full flex flex--col flex--center-x flex--bottom gap--xsmall">
-      {% if m.leader %}<span class="label label--small lg:label--base label--outline">{{ m.name | replace: " ", "&nbsp;" }}&nbsp;·&nbsp;{{ m.score }}%</span>{% endif %}
+      {% if m.leader %}<span class="label label--small lg:label--base label--outline">{{ m.name | replace: " ", "&nbsp;" }}<span class="portrait:hidden lg:portrait:inline">&nbsp;·&nbsp;{{ m.score }}%</span></span>{% endif %}
       <div class="no-shrink w--8 h--8 lg:w--12 lg:h--12 rounded--full flex flex--center-x {% if m.leader %}bg--black{% else %}bg--white outline{% endif %}">
         <span class="label label--small lg:label--base{% if m.leader %} text--white{% endif %}">{{ m.initials }}</span>
       </div>
@@ -48,7 +51,7 @@
 {% endtemplate %}
 
 {% template milestone_labels %}
-<div class="relative w--full h--12 lg:h--20 mt--2">
+<div class="relative w--full {% if names == false %}h--6 lg:h--10{% else %}h--16 lg:h--28 portrait:h--12 lg:portrait:h--20{% endif %} mt--2">
   {% for m in milestones %}
   {% if forloop.first %}{% assign row = "flex--left" %}{% assign box = "flex--left" %}
   {% elsif forloop.last %}{% assign row = "flex--right" %}{% assign box = "flex--right" %}
@@ -57,7 +60,8 @@
     {% unless forloop.first or forloop.last %}<div class="no-shrink w--[{{ m.left }}cqw]"></div>{% endunless %}
     <div class="flex flex--col {{ box }}">
       <span class="label label--small lg:label--base{% if m.state == 'todo' %} label--gray 1bit:text--black{% endif %}">{{ m.at }}%</span>
-      <span class="label lg:label--large lg:portrait:label--base portrait:hidden lg:portrait:block{% if m.state == 'reached' %} text--bold{% elsif m.state == 'todo' %} label--gray 1bit:text--black{% else %} label--underline{% endif %}">{{ m.label | replace: " ", "&nbsp;" }}</span>
+      {% unless names == false %}{% assign stagger = forloop.index | modulo: 2 %}{% if stagger == 0 and forloop.last == false %}<span class="label lg:label--large lg:portrait:label--base portrait:hidden lg:portrait:block">&nbsp;</span>{% endif %}
+      <span class="label lg:label--large lg:portrait:label--base portrait:hidden lg:portrait:block{% if m.state == 'reached' %} text--bold{% elsif m.state == 'todo' %} label--gray 1bit:text--black{% else %} label--underline{% endif %}">{{ m.label | replace: " ", "&nbsp;" }}</span>{% endunless %}
     </div>
   </div>
   {% endfor %}

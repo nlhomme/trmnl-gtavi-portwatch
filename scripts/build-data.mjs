@@ -59,9 +59,9 @@ export function transform(input) {
   })).sort((a, b) => a.x - b.x);
   markers.forEach((m, i) => { m.a = i ? Math.max(m.x, markers[i - 1].a + GAP) : m.x; });
   const shift = markers.reduce((s, m) => s + (m.x - m.a), 0) / Math.max(1, markers.length);
-  // Markers are drawn in 12%-wide boxes centred on `a`, so keep a within [6, 94]; `left` = box start (integer, for w--[Ncqw]).
+  // Markers are drawn in 12%-wide boxes centred on `a`, so keep a within [6, 90] (the leader's name label then stays on screen in portrait); `left` = box start (integer, for w--[Ncqw]).
   markers.forEach((m, i) => { m.a = Math.max(6, i ? Math.max(m.a + shift, markers[i - 1].a + GAP) : m.a + shift); });
-  const over = markers.length ? markers[markers.length - 1].a - 94 : 0;
+  const over = markers.length ? markers[markers.length - 1].a - 90 : 0;
   markers.forEach((m) => { if (over > 0) m.a -= over; m.a = Math.round(m.a); m.left = m.a - 6; });
 
   return {
