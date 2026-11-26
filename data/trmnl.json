@@ -1,10 +1,10 @@
 {
  "updated": "2026-11-26T13:35:57.194Z",
- "score": 91.5,
+ "score": 89.6,
  "leader": "CGBJ",
  "leader_reached_label": "Playable",
  "furthest_label": "Playable",
- "top3": 88,
+ "top3": 87.2,
  "booted": 20,
  "tracked": 44,
  "milestones": [
@@ -53,10 +53,10 @@
  ],
  "markers": [
   {
-   "name": "Belobug",
-   "initials": "BE",
-   "score": 79,
-   "x": 79,
+   "name": "DexNom",
+   "initials": "DE",
+   "score": 77.4,
+   "x": 77.4,
    "leader": false,
    "a": 60,
    "left": 54
@@ -64,8 +64,8 @@
   {
    "name": "AvatarManz",
    "initials": "AV",
-   "score": 83.1,
-   "x": 83.1,
+   "score": 81.8,
+   "x": 81.8,
    "leader": false,
    "a": 66,
    "left": 60
@@ -73,8 +73,8 @@
   {
    "name": "Doomsday",
    "initials": "DO",
-   "score": 84,
-   "x": 84,
+   "score": 82.1,
+   "x": 82.1,
    "leader": false,
    "a": 72,
    "left": 66
@@ -91,8 +91,8 @@
   {
    "name": "NotNozy",
    "initials": "NO",
-   "score": 87.8,
-   "x": 87.8,
+   "score": 87.1,
+   "x": 87.1,
    "leader": false,
    "a": 84,
    "left": 78
@@ -100,8 +100,8 @@
   {
    "name": "CGBJ",
    "initials": "CG",
-   "score": 91.5,
-   "x": 91.5,
+   "score": 89.6,
+   "x": 89.6,
    "leader": true,
    "a": 90,
    "left": 84
