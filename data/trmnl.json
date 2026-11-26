@@ -1,10 +1,10 @@
 {
  "updated": "2026-11-26T16:18:31.636Z",
- "score": 89.6,
- "leader": "CGBJ",
+ "score": 91.3,
+ "leader": "Belobug",
  "leader_reached_label": "Playable",
  "furthest_label": "Playable",
- "top3": 87.6,
+ "top3": 89.3,
  "booted": 20,
  "tracked": 44,
  "milestones": [
@@ -80,28 +80,28 @@
    "left": 66
   },
   {
-   "name": "Belobug",
-   "initials": "BE",
-   "score": 86.1,
-   "x": 86.1,
-   "leader": false,
-   "a": 78,
-   "left": 72
-  },
-  {
    "name": "NotNozy",
    "initials": "NO",
    "score": 87.1,
    "x": 87.1,
    "leader": false,
-   "a": 84,
-   "left": 78
+   "a": 78,
+   "left": 72
   },
   {
    "name": "CGBJ",
    "initials": "CG",
    "score": 89.6,
    "x": 89.6,
+   "leader": false,
+   "a": 84,
+   "left": 78
+  },
+  {
+   "name": "Belobug",
+   "initials": "BE",
+   "score": 91.3,
+   "x": 91.3,
    "leader": true,
    "a": 90,
    "left": 84
