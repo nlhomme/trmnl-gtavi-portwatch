@@ -28,6 +28,7 @@ Any change to the repo that alters what a reader would do or expect must update 
 - When something is removed or renamed, remove or rename every mention of it; search the whole repo for the old name.
 - Commands and examples in the documentation must be ones that work as written. If one could not be tried, say so in the text.
 - If the documentation and the code disagree, that is a bug: fix it even if it is unrelated to the task at hand, or report it.
+- The screenshots in `docs/` (`preview-*.png`, used by `README.md`) are part of the documentation and must always be up to date. Any change to what a view shows or how it looks (templates, `data/trmnl.json` fields the views read, milestones, sizes) requires re-rendering the affected screenshots in the same change. If they cannot be re-rendered, say so in the final report and in the README next to the image, never leave them silently stale.
 
 ### Before every commit or push
 
