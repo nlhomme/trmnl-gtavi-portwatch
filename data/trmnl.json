@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-25T19:48:37.000Z",
- "score": 79.5,
- "leader": "darkworldhm",
+ "updated": "2026-11-26T04:18:11.884Z",
+ "score": 86.7,
+ "leader": "CGBJ",
  "leader_reached_label": "Playable",
  "furthest_label": "Playable",
- "top3": 78.7,
- "booted": 17,
- "tracked": 41,
+ "top3": 84.7,
+ "booted": 19,
+ "tracked": 43,
  "milestones": [
   {
    "label": "Groundwork",
@@ -53,58 +53,58 @@
  ],
  "markers": [
   {
-   "name": "hyphennn",
-   "initials": "HY",
-   "score": 59.8,
-   "x": 59.8,
-   "leader": false,
-   "a": 54,
-   "left": 48
-  },
-  {
-   "name": "suri",
-   "initials": "SU",
-   "score": 61,
-   "x": 61,
-   "leader": false,
-   "a": 60,
-   "left": 54
-  },
-  {
    "name": "Belobug",
    "initials": "BE",
-   "score": 77.7,
-   "x": 77.7,
+   "score": 79,
+   "x": 79,
    "leader": false,
-   "a": 71,
-   "left": 65
-  },
-  {
-   "name": "DexNom",
-   "initials": "DE",
-   "score": 78,
-   "x": 78,
-   "leader": false,
-   "a": 77,
-   "left": 71
+   "a": 64,
+   "left": 58
   },
   {
    "name": "Doomsday",
    "initials": "DO",
-   "score": 78.7,
-   "x": 78.7,
+   "score": 80.5,
+   "x": 80.5,
    "leader": false,
-   "a": 83,
-   "left": 77
+   "a": 70,
+   "left": 64
   },
   {
    "name": "darkworldhm",
    "initials": "DA",
-   "score": 79.5,
-   "x": 79.5,
+   "score": 81.3,
+   "x": 81.3,
+   "leader": false,
+   "a": 76,
+   "left": 70
+  },
+  {
+   "name": "AvatarManz",
+   "initials": "AV",
+   "score": 83.1,
+   "x": 83.1,
+   "leader": false,
+   "a": 82,
+   "left": 76
+  },
+  {
+   "name": "NotNozy",
+   "initials": "NO",
+   "score": 84.3,
+   "x": 84.3,
+   "leader": false,
+   "a": 88,
+   "left": 82
+  },
+  {
+   "name": "CGBJ",
+   "initials": "CG",
+   "score": 86.7,
+   "x": 86.7,
    "leader": true,
-   "a": 89,
-   "left": 83
+   "a": 94,
+   "left": 88
   }
  ]
 }
