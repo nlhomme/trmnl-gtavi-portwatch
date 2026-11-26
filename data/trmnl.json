@@ -4,7 +4,7 @@
  "leader": "CGBJ",
  "leader_reached_label": "Playable",
  "furthest_label": "Playable",
- "top3": 87.2,
+ "top3": 87.6,
  "booted": 20,
  "tracked": 44,
  "milestones": [
@@ -53,22 +53,13 @@
  ],
  "markers": [
   {
-   "name": "DexNom",
-   "initials": "DE",
-   "score": 77.4,
-   "x": 77.4,
-   "leader": false,
-   "a": 60,
-   "left": 54
-  },
-  {
    "name": "AvatarManz",
    "initials": "AV",
    "score": 81.8,
    "x": 81.8,
    "leader": false,
-   "a": 66,
-   "left": 60
+   "a": 60,
+   "left": 54
   },
   {
    "name": "Doomsday",
@@ -76,14 +67,23 @@
    "score": 82.1,
    "x": 82.1,
    "leader": false,
-   "a": 72,
-   "left": 66
+   "a": 66,
+   "left": 60
   },
   {
    "name": "darkworldhm",
    "initials": "DA",
    "score": 84.8,
    "x": 84.8,
+   "leader": false,
+   "a": 72,
+   "left": 66
+  },
+  {
+   "name": "Belobug",
+   "initials": "BE",
+   "score": 86.1,
+   "x": 86.1,
    "leader": false,
    "a": 78,
    "left": 72
