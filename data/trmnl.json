@@ -4,9 +4,9 @@
  "leader": "Belobug",
  "leader_reached_label": "Playable",
  "furthest_label": "Playable",
- "top3": 89.3,
- "booted": 20,
- "tracked": 44,
+ "top3": 90.3,
+ "booted": 21,
+ "tracked": 45,
  "milestones": [
   {
    "label": "Groundwork",
@@ -53,22 +53,13 @@
  ],
  "markers": [
   {
-   "name": "AvatarManz",
-   "initials": "AV",
-   "score": 81.8,
-   "x": 81.8,
-   "leader": false,
-   "a": 60,
-   "left": 54
-  },
-  {
    "name": "Doomsday",
    "initials": "DO",
    "score": 82.1,
    "x": 82.1,
    "leader": false,
-   "a": 66,
-   "left": 60
+   "a": 60,
+   "left": 54
   },
   {
    "name": "darkworldhm",
@@ -76,8 +67,8 @@
    "score": 84.8,
    "x": 84.8,
    "leader": false,
-   "a": 72,
-   "left": 66
+   "a": 66,
+   "left": 60
   },
   {
    "name": "NotNozy",
@@ -85,14 +76,23 @@
    "score": 87.1,
    "x": 87.1,
    "leader": false,
-   "a": 78,
-   "left": 72
+   "a": 72,
+   "left": 66
   },
   {
    "name": "CGBJ",
    "initials": "CG",
    "score": 89.6,
    "x": 89.6,
+   "leader": false,
+   "a": 78,
+   "left": 72
+  },
+  {
+   "name": "VIctory-NVIDIA",
+   "initials": "VI",
+   "score": 90,
+   "x": 90,
    "leader": false,
    "a": 84,
    "left": 78
