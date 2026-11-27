@@ -6,7 +6,7 @@ export function transform(input) {
   if (!Array.isArray(input?.efforts)) throw new Error("tracker.json has no efforts[]: format changed?");
 
   // Copy of https://portwatch-vi.xyz/assets/js/scoring.js (MILESTONES, GROUNDWORK weights, STABILITY,
-  // scoreEffort, overall): keep in sync with it. scripts/check-drift.mjs fails when they disagree.
+  // scoreEffort, countsInHeadline, overall): keep in sync with it. scripts/check-drift.mjs fails when they disagree.
   const MILESTONES = [
     ['groundwork', 'Groundwork', 0], ['loads', 'Exe runs', 10], ['boots', 'First frame', 20],
     ['menu', 'Main menu', 30], ['world', 'In the world', 40], ['playable', 'Playable', 50], ['complete', 'Complete', 100],
@@ -43,7 +43,7 @@ export function transform(input) {
     return { score: round1(s), reached };
   }
   const all = input.efforts;
-  const ranked = all.filter((e) => !e.nuked)
+  const ranked = all.filter((e) => !e.nuked || e.nuked.keepScore === true) // site's countsInHeadline: nuked efforts stay if the owner kept their score
     .map((e) => ({ e, ...score(e) }))
     .sort((a, b) => b.score - a.score || (b.e.stats?.stars || 0) - (a.e.stats?.stars || 0));
   const leader = ranked[0];
