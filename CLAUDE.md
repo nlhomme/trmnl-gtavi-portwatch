@@ -65,6 +65,10 @@ The four views do not share one layout: each is designed for its size (`half_ver
 - `check-drift.mjs` runs the site's live `scoring.js` and compares: never weaken or skip it to make the workflow green. A red run means the copy is out of date.
 - `check-drift.mjs` runs code downloaded from the site. In the workflow it must keep running with **no push access**: keep `persist-credentials: false` on the checkout, and give `GITHUB_TOKEN` only to the commit step.
 
+## Rule: a workflow-failure issue is fixed only when the workflow succeeds
+
+When treating an issue opened by the workflow ("Build TRMNL data is failing"), working locally is not enough: push the fix branch, run the workflow on it (`gh workflow run build-data.yml --ref <branch>`), and wait for the run to succeed (`gh run watch <id> --exit-status`) before saying the issue is fixed. The `report` job then closes the issue itself. Say so if the run failed or could not be run. The scheduled runs only use `main`, so the issue stays fixed for good only once the branch is merged.
+
 ## TRMNL markup
 
 - Follow the TRMNL framework: no `style="…"`, no `<style>` blocks, no emojis, framework classes only (the `trmnl:trmnl` skill has the full rules).
